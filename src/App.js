@@ -61,11 +61,13 @@ class App extends React.Component {
 
     this.state = {
       faBoxes: this.shuffle(faBoxes),
+      completed: false,
       flippedCount: 0,
       pair: []
     };
 
     this.flip = this.flip.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   shuffle(faBoxes) {
@@ -74,10 +76,11 @@ class App extends React.Component {
 
   reset() {
     this.setState({
-      faBoxes: faBoxes.map(box => {
+      faBoxes: this.shuffle(faBoxes.map(box => {
         box.facing = 'backwards';
+        box.matched = false;
         return box;
-      }),
+      })),
       flippedCount: 0
     });
   }
@@ -139,7 +142,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className={'App ' + (this.state.completed ? 'completed' : '')}>
           {this.state.faBoxes.map((icon, index) => {
             return (
               <div key={index} className={'box ' + icon.facing} onClick={this.flip}>
@@ -147,6 +150,10 @@ class App extends React.Component {
               </div>
             );
           })}
+          <div className="congrats">
+            <p>Congratulations!</p>
+            <button onClick={this.reset}>Play again</button>
+          </div>
       </div>
     );
   }

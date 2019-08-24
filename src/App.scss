@@ -6,6 +6,7 @@
 
 .App {
   font-size: 20px;
+  position: relative;
 }
 
 .box {
@@ -21,9 +22,6 @@
   &.front {
     background-color: #cfad32;
   }
-  // &.back, &:hover {
-  //   transform: rotateY(180deg);
-  // }
 }
 
 .box:after {
@@ -44,4 +42,28 @@ span {
   height: 100%;
   text-align: center;
   padding: 18% 0;
+}
+
+.congrats {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  font-style: italic;
+  text-align: center;
+  padding: 10%;
+
+  button {
+    margin: 20px 0;
+    background-color: #cfad32;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
 }
