@@ -63,6 +63,7 @@ class App extends React.Component {
       faBoxes: this.shuffle(faBoxes),
       completed: false,
       flippedCount: 0,
+      prev: null,
       pair: []
     };
 
@@ -81,7 +82,10 @@ class App extends React.Component {
         box.matched = false;
         return box;
       })),
-      flippedCount: 0
+      completed: false,
+      flippedCount: 0,
+      prev: null,
+      pair: []
     });
   }
 
@@ -95,10 +99,17 @@ class App extends React.Component {
     }
 
     let newState = [];
+    let matched = [];
+    let completed = false;
+    let flippedCount = this.state.flippedCount;
+    let prev = this.state.prev;
     let pair = this.state.pair;
 
     if (pair.length === 2) {
       pair = [];
+    }
+    if ((flippedCount % 2) === 0) {
+      prev = null;
     }
 
     this.state.faBoxes.forEach((box, index) => {
@@ -106,8 +117,12 @@ class App extends React.Component {
         if (boxIndex === index && box.facing === 'backwards') {
           box.facing = 'front';
           pair.push(box.name);
+          prev = index;
         } else {
           box.facing = 'backwards';
+        }
+        if (index === prev) {
+          box.facing = 'front';
         }
       }
       newState.push(box);
@@ -120,14 +135,21 @@ class App extends React.Component {
         }
         if (box.matched) {
           box.facing = 'front';
+          matched.push(box.name);
         }
         return box;
       });
     }
+
+    if (newState.length === matched.length) {
+      completed = true;
+    }
     
     this.setState({
       faBoxes: newState,
+      completed: completed,
       flippedCount: this.state.flippedCount + 1,
+      prev: prev,
       pair: pair
     });
   }

@@ -54,6 +54,7 @@ span {
   font-style: italic;
   text-align: center;
   padding: 10%;
+  display: none;
 
   button {
     margin: 20px 0;
@@ -65,5 +66,15 @@ span {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+  }
+}
+
+.completed {
+  .box {
+    display: none;
+  }
+
+  .congrats {
+    display: block;
   }
 }
