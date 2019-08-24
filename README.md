@@ -1,8 +1,8 @@
 ## Overview
 
-This project was created to learn ReactJS. The fa-memory-game stands for Font Awesome Memory Games as we are using the Font Awesome icons for matching.
+This project was created to learn ReactJS. The fa-memory-game stands for Font Awesome Memory Game. Font Awesome icons was used in pairing elements.
 
-Matching games are games that require players to match similar elements. As the name implies, participants need to find a match for a word, picture, or card.
+Matching games are games that require players to match similar elements. As the name implies, participants need to find a match for an icon. The object of the game is to turn over pairs of matching icons.
 
 ## How to use
 
