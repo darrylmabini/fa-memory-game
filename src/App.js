@@ -94,7 +94,7 @@ class App extends React.Component {
     
     const boxIndex = Number(e.target.dataset.boxIndex);
 
-    if (this.state.faBoxes[boxIndex].facing === 'front') {
+    if (this.state.faBoxes[boxIndex].facing === 'front' || e.target.classList.contains('box')) {
       return;
     }
 
@@ -117,7 +117,7 @@ class App extends React.Component {
         if (boxIndex === index && box.facing === 'backwards') {
           box.facing = 'front';
           pair.push(box.name);
-          prev = index;
+          prev = prev || index;
         } else {
           box.facing = 'backwards';
         }
