@@ -165,17 +165,17 @@ class App extends React.Component {
   render() {
     return (
       <div className={'App ' + (this.state.completed ? 'completed' : '')}>
-          {this.state.faBoxes.map((icon, index) => {
-            return (
-              <div key={index} className={'box ' + icon.facing} onClick={this.flip}>
-                <span className={this.faClassList(index, icon.name)} data-box-index={index}></span>
-              </div>
-            );
-          })}
-          <div className="congrats">
-            <p>Congratulations!</p>
-            <button onClick={this.reset}>Play again</button>
-          </div>
+        {this.state.faBoxes.map((icon, index) => {
+          return (
+            <div key={index} className={'box ' + icon.facing} onClick={this.flip}>
+              <span className={this.faClassList(index, icon.name)} data-box-index={index}></span>
+            </div>
+          );
+        })}
+        <div className="congrats">
+          <p>Congratulations!</p>
+          <button onClick={this.reset}>Play again</button>
+        </div>
       </div>
     );
   }
