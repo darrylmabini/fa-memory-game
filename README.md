@@ -8,5 +8,5 @@ Matching games are games that require players to match similar elements. As the 
 
 - `git clone https://github.com/darrylmabini/fa-memory-game.git`
 - `cd fa-memory-game` and run `npm run start` or `yarn start`
-- It will open in web browser in this URL http://localhost:3000/
+- It will open in the web browser with this URL http://localhost:3000/
 - Enjoy!
